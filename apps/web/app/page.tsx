@@ -1,4 +1,4 @@
-import { Title } from "../../../packages/ui/src/atom/title";
+import { Title } from "@repo/ui/atom/title/title";
 
 const Page = () => {
   return <Title text="Hello World" />;
