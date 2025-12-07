@@ -18,7 +18,7 @@ importers:
         specifier: 2.6.2
         version: 2.6.2
 
-  apps/storybook:
+  apps/docs:
     dependencies:
       '@repo/ui':
         specifier: workspace:*
