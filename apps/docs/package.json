@@ -13,17 +13,16 @@
     "react-dom": "19.2.1",
     "@tailwindcss/vite": "4.1.17",
     "tailwindcss": "4.1.17",
-    "@repo/ui": "workspace:*"
+    "@repo/ui": "workspace:*",
+    "@repo/tailwind-config": "workspace:*"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "4.1.17",
     "@types/node": "24.10.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.1",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.7",
-    "tailwindcss": "4.1.17",
     "typescript": "5.9.3",
     "storybook": "10.1.4",
     "@storybook/react-vite": "10.1.4",
