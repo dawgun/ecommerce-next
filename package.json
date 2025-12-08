@@ -9,7 +9,8 @@
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
     "test": "turbo run test",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "generate-component": "node ./scripts/create-component.mjs"
   },
   "devDependencies": {
     "prettier": "3.7.4",
