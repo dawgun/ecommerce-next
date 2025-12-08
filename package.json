@@ -8,7 +8,9 @@
     "dev:docs": "turbo run dev --filter=docs",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "generate-component": "node ./scripts/create-component.mjs"
   },
   "devDependencies": {
     "prettier": "3.7.4",
