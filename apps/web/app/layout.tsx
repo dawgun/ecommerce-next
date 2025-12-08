@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import "@repo/tailwind-config/shared-styles";
+import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
 
