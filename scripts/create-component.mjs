@@ -3,6 +3,8 @@ import fs from "fs";
 import path from "path";
 import readline from "readline";
 
+const componentTypes = ["atoms", "molecules", "form", "layout", "organisms"];
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -46,15 +48,15 @@ async function run() {
     process.exit(1);
   }
 
-  const componentType = await select("¿De que tipo será este componente??", [
-    "atom",
-    "molecules",
-    "form",
-  ]);
+  const componentType = await select(
+    "¿De que tipo será este componente??",
+    componentTypes
+  );
 
   rl.close();
 
   const inComponentName = await parseName(componentName);
+  const inComponentType = await parseName(componentType);
 
   const componentPackage = {
     [`${componentName}.tsx`]: `
@@ -70,10 +72,10 @@ export * from './${componentName}';
   const componentStoryBook = {
     [`${componentName}.stories.ts`]: `
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ${inComponentName} } from "@repo/ui/${componentType}/${componentName}";
+import { ${inComponentName} } from "@repo/ui/${componentName}";
 
 export default {
-  title: "${componentType}/${componentName}",
+  title: "${inComponentType}/${inComponentName}",
   component: ${inComponentName},
 } satisfies Meta<typeof ${inComponentName}>;
 
@@ -85,10 +87,12 @@ export const Primary: StoryObj<typeof ${inComponentName}> = {
 
   const baseComponentPaths = [
     {
+      type: "Componente",
       path: path.join("packages", "ui", "src", componentType, componentName),
       component: componentPackage,
     },
     {
+      type: "Storybook",
       path: path.join("apps", "docs", "stories", componentType, componentName),
       component: componentStoryBook,
     },
@@ -105,7 +109,7 @@ export const Primary: StoryObj<typeof ${inComponentName}> = {
     }
 
     console.log(
-      `\n✅ Componente "${componentName}" creado en ${basePath.path}`
+      `\n✅ ${basePath.type} "${componentName}" creado en ${basePath.path}`
     );
   });
 
