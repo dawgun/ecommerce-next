@@ -10,6 +10,7 @@
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
     "test": "turbo run test",
+    "test:coverage": "turbo run test -- --coverage",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "generate-component": "node ./scripts/create-component.mjs"
   },
